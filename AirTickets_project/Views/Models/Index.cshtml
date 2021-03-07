@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AirTickets_project.Model>
+
+@{
+    ViewData["Title"] = "Модели самолетов";
+}
+
+<h1>Модели самолетов</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfSeats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModelName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ModelsId">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.ModelsId">Детально</a> |
+                <a asp-action="Delete" asp-route-id="@item.ModelsId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

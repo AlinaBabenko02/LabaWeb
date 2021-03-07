@@ -1,0 +1,45 @@
+﻿@model AirTickets_project.Ticket
+
+@{
+    ViewData["Title"] = "Удалить";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы уверены что хотите удалить это?</h3>
+<div>
+    <h4>Билет</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Clients)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Clients.ClientsId)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Flights)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Flights.FlightsId)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Types)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Types.TypeName)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TicketsId" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

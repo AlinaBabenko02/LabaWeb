@@ -1,0 +1,27 @@
+﻿@model AirTickets_project.Type
+
+@{
+    ViewData["Title"] = "Удалить";
+}
+
+<h1>Удалитьe</h1>
+
+<h3>Вы уверены что хотите удалить это?</h3>
+<div>
+    <h4>Тип</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TypeName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TypeName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TypesId" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>

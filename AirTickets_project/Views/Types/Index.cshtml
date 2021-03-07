@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AirTickets_project.Type>
+
+@{
+    ViewData["Title"] = "Типы билетов";
+}
+
+<h1>Типы билетов</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TypesId">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.TypesId">Детально</a> |
+                <a asp-action="Delete" asp-route-id="@item.TypesId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model AirTickets_project.Ticket
+
+@{
+    ViewData["Title"] = "Детально";
+}
+
+<h1>Детально</h1>
+
+<div>
+    <h4>Билетt</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Clients)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Clients.ClientsId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Flights)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Flights.FlightsId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Types)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Types.TypeName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TicketsId">Изменить</a> |
+    <a asp-action="Index">Назад</a>
+</div>

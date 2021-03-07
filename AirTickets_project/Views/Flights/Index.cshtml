@@ -1,0 +1,79 @@
+﻿@model IEnumerable<AirTickets_project.Flight>
+
+@{
+    ViewData["Title"] = "Список рейсов";
+}
+
+<h1>Список рейсов</h1>
+<form method="get">
+    <div class="form-inline form-group">
+        <label class="control-label"> Аэропорт отправления </label><p>&emsp;</p>
+        <select name="idDeparture" asp-items="@ViewBag.airports" class="form-control"></select>
+        <p>&emsp;</p>
+        <label class="control-label">Аэропорт прибытия</label>
+        <p>&emsp;</p>
+        <select name="idArrival" asp-items="@ViewBag.airports" class="form-control"></select>
+        <p>&emsp;</p>
+        <label class="control-label">Дата отправления</label>
+        <p>&emsp;</p>
+        <input type="date" name="departureTime" class="form-control" />
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrivalTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaceOfDepartureNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaceOfArrivalNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Planes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceOfDepartureNavigation.NameOfAirport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaceOfArrivalNavigation.NameOfAirport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Planes.PlanesId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FlightsId">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.FlightsId">Детально</a> |
+                <a asp-action="Delete" asp-route-id="@item.FlightsId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
